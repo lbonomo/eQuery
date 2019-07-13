@@ -1,3 +1,8 @@
 body {
   /* De momento nada */
 }
+
+
+textarea.EditSQLX {
+   height: calc(100vh - 200px);
+}

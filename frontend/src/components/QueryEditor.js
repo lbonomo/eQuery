@@ -50,6 +50,10 @@ class QueryEditor extends Component {
 
    render() {
       return (
+
+<main class="mdl-layout__content">
+        <div class="page-content">
+           
       <div className="mdl-cell mdl-cell--12-col">
          <form>
             <div className="form-separator-row"></div>
@@ -60,7 +64,7 @@ class QueryEditor extends Component {
                <textarea
                value={this.state.sql_query}
                onChange={this.textareaHandleChange}
-               className="mdl-textfield__input"
+               className="mdl-textfield__input EditSQLX"
                type="text"
                name="sql_query"
                id="sql"
@@ -86,6 +90,8 @@ class QueryEditor extends Component {
             </div>
          </form>
       </div>
+      </div>         
+      </main>      
      )
    }
 }
