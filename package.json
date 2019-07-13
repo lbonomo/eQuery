@@ -1,0 +1,33 @@
+{
+  "name": "equery",
+  "version": "0.0.1",
+  "description": "Interface para realizar consultas a MSSQL y exportarlas en distintos formatos",
+  "productName": "eQuery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lbonomo/eQuery.git"
+  },
+  "keywords": [
+    "MSSQL",
+    "Excel"
+  ],
+  "author": "Lucas Bonomo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lbonomo/eQuery/issues"
+  },
+  "homepage": "https://github.com/lbonomo/eQuery#readme",
+  "devDependencies": {
+    "electron": "^5.0.6"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "excel-export": "^0.5.1",
+    "express": "^4.17.1",
+    "mssql": "^5.1.0"
+  }
+}

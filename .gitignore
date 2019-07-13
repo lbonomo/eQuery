@@ -1,0 +1,6 @@
+otros/
+main/
+backend/test_data.js
+node_modules/
+package-lock.json
+dist/

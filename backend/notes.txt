@@ -1,0 +1,39 @@
+El backend:
+  Se encarga de consultar al base de datos y devolver el archivo XLSX
+  POST /query/
+    - query: "Consulta SQL"
+    -> Devuleve un XLSX
+
+El frontend:
+  Nos permite elegir la consulta almacenada
+
+Objetivo de la versión 1
+- No visualiza, solo permite la descarga del archivo
+
+
+
+dredd.org
+=========
+
+<!-- https://www.adictosaltrabajo.com/2015/07/02/apis-rest-documentadas-y-probadas-con-api-blueprint-y-dredd/ -->
+
+https://dredd.org/en/latest/
+
+dredd ./api-description.apib http://127.0.0.1:3000 --dry-run
+dredd ./api-description.apib http://127.0.0.1:3000 --names
+
+<!-- # POST /query
++ Response 200 (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+        Archivo con el resultado de al consulta o error -->
+
+<!-- + Parameters
+    + query : "Select * from table" (string) -->
+
+
+aglio
+=====
+
+Para generar la documentacion del API
+npm install -g aglio
+
+aglio -i api-description.apib -o api-description.html

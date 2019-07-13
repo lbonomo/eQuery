@@ -1,0 +1,55 @@
+@import './fonts.css';
+@import './icons.css';
+@import './material.min.css';
+
+body {
+   color: grey;
+}
+
+textarea.mdl-textfield__input {
+   font-size: 12px;
+   font-family: monospace;
+}
+
+.console {
+   width: 100%;
+   height: calc(100% - 10px);
+   border: solid 1px lightgrey;
+}
+
+
+.mdl-layout__header-row {
+   padding: inherit !important;
+}
+
+.form_row {
+   margin: auto;
+   width: 250px;
+   height: 40px;
+ }
+
+ .file_input {
+   float: left;
+ }
+
+ #file_input_text_div {
+   /* width: 200px; */
+   width: calc(100% - 70px);
+   margin-top: -8px;
+   margin-left: 5px;
+ }
+
+.form_container{
+   max-width: 1600px;
+   width: calc(100% - 16px);
+   margin: 0 auto;
+   display: block;
+}
+
+.form-separator-row {
+   height: 2rem;
+}
+
+.centre {
+   margin: auto !important;
+}
