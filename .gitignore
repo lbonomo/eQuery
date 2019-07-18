@@ -4,3 +4,6 @@ backend/test_data.js
 node_modules/
 package-lock.json
 dist/
+build.sh
+push.sh
+shared.sh

@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow,  Menu} = require('electron');
 
 const path = require('path');
 
@@ -13,22 +13,24 @@ app.on('ready', function () {
   WebView = new BrowserWindow({
     backgroundColor: 'lightgray',
     title: config.productName,
-    show: false,
     webPreferences: {
       nodeIntegration: true,
       defaultEncoding: 'UTF-8'
     }
   });
+  WebView.maximize();
+  WebView.setMenuBarVisibility(false);
+
 
   //
   let userDataFolther = app.getPath('userData');
   // console.log(userDataFolther);
-  console.log(`${__dirname}`);
+  // console.log(`${__dirname}`);
   WebView.loadFile(`${__dirname}/frontend/build/index.html`);
 
   WebView.once('ready-to-show', () => {
-    WebView.setMenu(null);
-    WebView.show();
+
+  WebView.show();
   });
 
 });

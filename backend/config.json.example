@@ -6,5 +6,9 @@
     "password": "your_passwoed",
     "server": "your_server_ip",
     "database": "your_database"
+    "options": {
+      "encrypt": false,
+      "instanceName": "intance"
+    }
   }
 }
