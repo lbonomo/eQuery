@@ -85,21 +85,23 @@ Return the list of parameters
 + Response 200 (application/json)
 
         {
-            "name": "Ventas mensuales",
-            "uri": "/api/queries/15/data"
-            "params": [
-                {
-                    "name": "start_date",
-                    "type": "date",
-                    "description": "Fecha de inicio de la consulta"
-                },
-                {
-                    "name": "end_date",
-                    "type": "date",
-                    "description": "Fecha de cierre de la consulta"
-                }
-
-            ]
+            "status": "success",
+            "data":{
+                "name": "Ventas mensuales",
+                "uri": "/api/queries/15/data"
+                "params": [
+                    {
+                        "name": "start_date",
+                        "type": "date",
+                        "description": "Fecha de inicio de la consulta"
+                    },
+                    {
+                        "name": "end_date",
+                        "type": "date",
+                        "description": "Fecha de cierre de la consulta"
+                    }
+                ]
+            }
         }
 
 ## Modifi a storage query [PATCH /api/queries/{query_id}]
@@ -127,7 +129,7 @@ Return the list of parameters
 + Response 200 (application/json)
 
         {
-            "status":"Ventas mensuales",
+            "status": "success"
         }
 
 ## Delete a storage query [DELETE /api/queries/{query_id}]
@@ -137,7 +139,7 @@ Return the list of parameters
 + Response 200 (application/json)
 
         {
-            "status":"Ventas mensuales",
+            "status": "success"
         }
 
 ## Execute the senctes [GET /api/queries/{query_id}/data]
@@ -165,8 +167,8 @@ Return the list of parameters
 + Response 200 (application/json)
 
         {
-            "status": "message",
-            "data": {}
+            "status": "success",
+            "data": { array[object] }
         }
 
 
@@ -182,6 +184,6 @@ Return the list of parameters
 + Response 200 (application/json)
 
         {
-            "status": "message",
+            "status": "success",
             "data": { array[object] }
         }
