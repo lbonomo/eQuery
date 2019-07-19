@@ -36,4 +36,4 @@ aglio
 Para generar la documentacion del API
 npm install -g aglio
 
-aglio -i api-description.apib -o api-description.html
+aglio -i api-description.apib -o docs/api-description.html
