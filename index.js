@@ -1,10 +1,9 @@
 const { app, BrowserWindow,  Menu} = require('electron');
-
 const path = require('path');
 
 
 const config = require(path.join(__dirname, '/package.json'));
-const { apiServer } = require(path.join(__dirname, '/backend/main.js'));
+const { apiServer } = require(path.join(__dirname, '/backend/server.js'));
 
 app.setName(config.productName);
 var mainWindow = null;
@@ -16,7 +15,8 @@ app.on('ready', function () {
     webPreferences: {
       nodeIntegration: true,
       defaultEncoding: 'UTF-8'
-    }
+    },
+    icon: path.join(__dirname, 'assets/icons/icon.png')
   });
   WebView.maximize();
   WebView.setMenuBarVisibility(false);

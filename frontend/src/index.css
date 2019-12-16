@@ -1,8 +1,51 @@
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+.equery-logo {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  padding: 1rem 0;
+}
+
 body {
   /* De momento nada */
 }
 
-
 textarea.EditSQLX {
-   height: calc(100vh - 200px);
+   height: 120px;
+   overflow-x: auto;
+   font-size: 16px;
+}
+
+.SQLEditor {
+  height: calc(30vh - 16px);
+}
+
+.SQLResult {
+  height: calc(70vh - 80px);
+}
+
+.ResultTable {
+   overflow-x: auto;
+   height: calc(100% - 56px);
+}
+
+h5.noData {
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+
+.demo-drawer-header {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  height: 151px;
+}
+
+.mdl-layout__header .mdl-layout__drawer-button {
+  color: rgba(0,0,0,.5);
 }

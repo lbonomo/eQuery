@@ -11,6 +11,10 @@ Para colorear la sintaxis<br>
 [Componentes](https://getmdl.io/components/index.html)<br>
 [Iconos](https://material.io/tools/icons/)<br>
 
+
+## Editor de SQL
+[https://microsoft.github.io/monaco-editor/](https://microsoft.github.io/monaco-editor/)
+
 ## Available Scripts
 
 In the project directory, you can run:

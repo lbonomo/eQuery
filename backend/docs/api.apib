@@ -1,0 +1,280 @@
+FORMAT: 1A
+
+# Group Queries
+
+# Queries [/api/v1/queries]
+
+## List all queries [GET]
++ Response 200 (application/json; charset=utf-8)
+
+        { "queries":
+            [
+                {
+                    "id": 1,
+                    "uri": "/api/v1/queries/1",
+                    "name": "Ventas mensuales"
+                },
+                {
+                    "id": 2,
+                    "uri": "/api/v1/queries/2",
+                    "name": "Ventas perdidas"
+                },
+                {
+                    "id": 3,
+                    "uri": "/api/v1/queries/3",
+                    "name": "Lista de clientes"
+                }
+            ]
+        }
+
+## Add new quiry [POST]
+Request values description:
+
++ Request (application/json; charset=utf-8)
+
+    + Attributes (object)
+        + name (required, string) - Query name
+        + description (string) - Short description of query
+        + params (array[object]) - List of params
+        + query (required, string)
+
+    + Body
+
+            {
+                "name": "New query",
+                "description": "A short description of query",
+                "params": [
+                    {
+                        "name": "start_date",
+                        "type": "date",
+                        "default": "Default value"
+                    },
+                    {
+                        "name": "end_date",
+                        "type": "date",
+                        "default": "Default value"
+                    }
+                ],
+                "query": "select * from table"
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /api/v1/queries/2
+
+    + Attributes (object)
+        + id: 1 (number) - Unique identifier
+        + created: 1563839332 (number) - Timestamp
+        + name: Ventas entre fechas (string) - Query name
+        + description: Lista de ventas realizadas entre dos fechas (string) - Short description of query
+        + params (object) - List of params
+        + tempalte: select * from talbe where field = {{ value_name }} (string)
+
+    + Body
+
+            {
+                "id": 2,
+                "created": 1563839332,
+                "url": "/api/v1/queries/2",
+                "name": "Ventas entre fechas",
+                "description": "Lista de ventas realizadas entre dos fechas",
+                "params": [
+                    {
+                        "name": "start",
+                        "type": "date",
+                        "default": null
+                    },
+                    {
+                        "name": "end",
+                        "type": "date",
+                        "default": null
+                    }
+                ],
+                "template": "select * from ventas where date >= {{ start }}  and date <= {{ end }}"
+            }
+
+
+## Get parametes of Query [GET /api/v1/queries/{query_id}]
+Return the list of parameters
+
++ Parameters
+    + query_id: 1 (required, number) - An unique identifier of the query.
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "status": "success",
+            "data":{
+                "name": "Ventas mensuales",
+                "uri": "/api/v1/queries/15/data",
+                "params": [
+                    {
+                        "name": "start_date",
+                        "type": "date",
+                        "description": "Fecha de inicio de la consulta"
+                    },
+                    {
+                        "name": "end_date",
+                        "type": "date",
+                        "description": "Fecha de cierre de la consulta"
+                    }
+                ]
+            }
+        }
+
+## Modifi a storage query [PATCH /api/v1/queries/{query_id}]
++ Parameters
+    + query_id: 1 (number) - An unique identifier of the message.
+
++ Request  (application/json)
+
+        {
+            "name": "New query",
+            "description": "A short description of query",
+            "params": [
+                {
+                    "name": "start_date",
+                    "value": "date"
+                },
+                {
+                    "name": "end_date",
+                    "type": "value",
+                }
+            ],
+            "template": "select * from table"
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "status": "success"
+        }
+
+## Delete a storage query [DELETE /api/v1/queries/{query_id}]
++ Parameters
+    + query_id: 1 (number) - An unique identifier of the message.
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "status": "success"
+        }
+
+## Execute the senctes [GET /api/v1/queries/{query_id}/data]
+
++ params (array[object]) - List of params
+
++ Parameters
+    + query_id: 1 (required, number) - An unique identifier of the query.
+
++ Request (application/json)
+    + Attributes (object)
+        + params: [{ "name": "start_date", "value": "date" }] (array[object])
+
+    + Body
+
+            {
+                "params": [
+                    {
+                        "name": "start_date",
+                        "value": "date"
+                    },
+                    {
+                        "name": "end_date",
+                        "type": "value",
+                    }
+                ]
+            }
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Attributes (object)
+        + status (string)
+        + data (array[object])
+
+    + Body
+
+            {
+                "status": "success",
+                "data": [
+                    { "name": "Lucas Bonomo", "birthday": "1975-06-19" },
+                    { "name": "Andres Bonomo", "birthday": "1974-04-21" },
+                    { "name": "Abril Bonomo", "birthday": "2011-12-26" }
+                ]
+            }
+
+
+# Group SQL
+
+## SQL [/api/v1/sql?offset={offset}&limit={limit}]
+
+## Execute custom SQL query [GET]
+
++ Parameters
+    + offset: 10 (optional, number) - .
+    + limit: 10 (optional, number) - .
+
++ Request (application/json; charset=utf-8)
+    + Attributes (object)
+        + type: MSSQL (required, string)
+        + query: SELECT * FROM contacts (required, string)
+
+    + Body
+
+            {
+                "type": "MSSQL",
+                "query": "SELECT * FROM contacts"
+            }
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (object)
+        + status (string)
+        + data (array[object])
+
+    + Body
+
+            {
+               "status":"success",
+               "data":[
+                  { "name":"Lucas Bonomo", "birthday":"1975-06-19" },
+                  { "name":"Andres Bonomo", "birthday":"1974-04-21" },
+                  { "name":"Abril Bonomo", "birthday":"2011-12-26" }
+               ]
+            }
+
+# Group Config
+
+# Config [/api/v1/config]
+## Get config [GET]
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (object)
+        + status (string)
+        + data (array[object])
+
+    + Body
+
+            {
+               "status":"success",
+               "data": {
+                 "username":"usuario",
+                 "password":"unaclave",
+                 "host":"192.168.0.1",
+                 "database":"sistemadegestion"
+               }
+            }
+
+## Modifi config [PATCH /api/v1/config]
++ Request  (application/json)
+
+        {
+            "password":"otraclave"
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+                "status": "success"
+        }

@@ -1,8 +1,6 @@
 const sql = require('mssql');
-const config = require('../config.json');
 
-
-async function query(sql_query) {
+async function query(sql_query, config) {
 
 
     // var connection = mssql.connect(dbConfig, function (err) {

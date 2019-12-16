@@ -17,11 +17,6 @@ textarea.mdl-textfield__input {
    border: solid 1px lightgrey;
 }
 
-
-.mdl-layout__header-row {
-   padding: inherit !important;
-}
-
 .form_row {
    margin: auto;
    width: 250px;
@@ -47,7 +42,7 @@ textarea.mdl-textfield__input {
 }
 
 .form-separator-row {
-   height: 2rem;
+   height: 1rem;
 }
 
 .centre {
