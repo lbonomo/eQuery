@@ -1,0 +1,23 @@
+{
+   "sql": {
+      "status":"success",
+      "message":[
+         { "ID": 1, "Nombre": "CASA CENTRAL", "Domicilio": "SAN LUIS 2600" },
+         { "ID": 2, "Nombre": "RECONQUISTA", "Domicilio": "RUTA 11 KM 787" },
+         { "ID": 3, "Nombre": "RAFAELA", "Domicilio": "Zurbriggen 257" }
+      ]
+   },
+   "configs": {
+      "user": "consulta",
+      "password": "unapassword",
+      "server": "192.168.0.1",
+      "database": "siac",
+      "options": "{\"encrypt\":false,\"instanceName\":\"bieler\"}"
+   },
+   "check": {
+      "status": "success",
+      "message": [ 
+         { "": "Microsoft SQL Server 2005 - 9.00.1399.06 (Intel X86) \n\tOct 14 2005 00:33:37 \n\tCopyright (c) 1988-2005 Microsoft Corporation\n\tStandard Edition on Windows NT 5.2 (Build 3790: Service Pack 2)\n" }
+      ]
+  }
+}

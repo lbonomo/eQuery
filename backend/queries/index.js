@@ -1,37 +1,25 @@
 const sql = require('mssql');
 
+// https://www.npmjs.com/package/mssql
+
 async function query(sql_query, config) {
 
-
-    // var connection = mssql.connect(dbConfig, function (err) {
-    //   if (err)
-    //       throw err;
-    //   });
-
-    try {
-        console.log("...");
-        // if
-        // await sql.close();
-        let pool = await sql.connect(config.mssql);
-        let result = await sql.query(sql_query);
-        let query_result = result.recordsets[0];
-        sql.close();
-        console.log('Se ejecuto correctaemnte la consulta');
-        // console.log(terminales)
-        // console.log(`Columnas=${Object.keys(terminales[0])}`);
-        // terminales.forEach( (element) => {
-        //   console.log(element);
-        // });
-
-        return query_result;
-    } catch (err) {
-        console.log("Error!");
-        console.log(err);
-        return {
-          status: error,
-          message: err
-        };
-    }
+  try {
+    await sql.connect(config);
+    let result = await sql.query(sql_query);
+    sql.close();
+    let message = result.recordsets[0];
+    return {
+      status: "success",
+      message: message
+    };
+  } catch (error) {
+    // Si no se puede conectar... timeout, login,...
+    return {
+      status: "failure",
+      message: `Algo salio mal: ${error}`
+    };
+  }
 }
 
 module.exports = query;

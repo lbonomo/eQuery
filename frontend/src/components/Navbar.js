@@ -1,21 +1,35 @@
 import React from 'react';
+import {
+  NavLink,
+} from "react-router-dom";
+// Iconos
+// https://material.io/resources/icons/?icon=build&style=baseline
+
+// Imagen en la barra lateral
+// <header className="demo-drawer-header">
+//    <img className="equery-logo" src="images/logo.svg" alt="logo..."  />
+// </header>
 
 const Navbar = () => {
    return (
      <div className="demo-drawer mdl-layout__drawer mdl-color--white mdl-color-text--grey-800">
-       <header className="demo-drawer-header">
-         <img className="equery-logo" src="images/logo.svg" alt="logo..."  />
-       </header>
 
        <nav className="demo-navigation mdl-navigation">
-         <a className="mdl-navigation__link" href="custom">
-           <i className="material-icons" role="presentation">edit</i>Custom
-         </a>
 
-         <a className="mdl-navigation__link" href="help">
-           <i className="material-icons" role="presentation">help</i>Help
-         </a>
+           <NavLink exact to="/" className="mdl-navigation__link">
+             <i className="material-icons" role="presentation">code</i>Custom
+           </NavLink>
+
+           <NavLink exact to="/config" className="mdl-navigation__link">
+             <i className="material-icons" role="presentation">settings</i>Settings
+           </NavLink>
+
+           <NavLink exact to="/help" className="mdl-navigation__link">
+             <i className="material-icons" role="presentation">help</i>Help
+           </NavLink>
+
        </nav>
+
      </div>
    )
  }

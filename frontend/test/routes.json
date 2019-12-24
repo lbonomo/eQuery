@@ -1,0 +1,4 @@
+{
+   "/api/v1/configs/check":"/check",
+   "/api/v1/*": "/$1"
+ }

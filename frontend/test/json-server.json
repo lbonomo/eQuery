@@ -1,0 +1,4 @@
+{
+   "port": 5555,
+   "middlewares": [ "middleware-1.js" ]
+}

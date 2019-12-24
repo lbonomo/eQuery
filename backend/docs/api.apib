@@ -1,6 +1,7 @@
 FORMAT: 1A
+# eQuery
 
-# Group Queries
+<!-- # Group Queries
 
 # Queries [/api/v1/queries]
 
@@ -106,7 +107,7 @@ Return the list of parameters
 
         {
             "status": "success",
-            "data":{
+            "message":{
                 "name": "Ventas mensuales",
                 "uri": "/api/v1/queries/15/data",
                 "params": [
@@ -192,73 +193,65 @@ Return the list of parameters
 
     + Attributes (object)
         + status (string)
-        + data (array[object])
+        + message (array[object])
 
     + Body
 
             {
                 "status": "success",
-                "data": [
+                "message": [
                     { "name": "Lucas Bonomo", "birthday": "1975-06-19" },
                     { "name": "Andres Bonomo", "birthday": "1974-04-21" },
                     { "name": "Abril Bonomo", "birthday": "2011-12-26" }
                 ]
             }
 
+-->
 
 # Group SQL
 
-## SQL [/api/v1/sql?offset={offset}&limit={limit}]
+## SQL [/api/v1/sql]
 
-## Execute custom SQL query [GET]
-
-+ Parameters
-    + offset: 10 (optional, number) - .
-    + limit: 10 (optional, number) - .
+## Execute custom SQL query [POST]
 
 + Request (application/json; charset=utf-8)
     + Attributes (object)
-        + type: MSSQL (required, string)
-        + query: SELECT * FROM contacts (required, string)
+        + query: select @@version (required, string)
 
     + Body
 
             {
-                "type": "MSSQL",
-                "query": "SELECT * FROM contacts"
+              "query": "select @@version"
             }
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes (object)
         + status (string)
-        + data (array[object])
+        + message (array[object])
 
     + Body
 
             {
                "status":"success",
-               "data":[
-                  { "name":"Lucas Bonomo", "birthday":"1975-06-19" },
-                  { "name":"Andres Bonomo", "birthday":"1974-04-21" },
-                  { "name":"Abril Bonomo", "birthday":"2011-12-26" }
-               ]
+               "message": [ "Microsoft SQL Server 2005 - 9.00.1399.06 (Intel X86) \n\tOct 14 2005 00:33:37 \n\tCopyright (c) 1988-2005 Microsoft Corporation\n\tStandard Edition on Windows NT 5.2 (Build 3790: Service Pack 2)\n" ]
             }
+
 
 # Group Config
 
-# Config [/api/v1/config]
+# Config [/api/v1/configs]
 ## Get config [GET]
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes (object)
         + status (string)
-        + data (array[object])
+        + message (array[object])
 
     + Body
 
             {
                "status":"success",
-               "data": {
+               "message": {
                  "username":"usuario",
                  "password":"unaclave",
                  "host":"192.168.0.1",
@@ -266,11 +259,11 @@ Return the list of parameters
                }
             }
 
-## Modifi config [PATCH /api/v1/config]
+## Modifi config [PATCH /api/v1/configs]
 + Request  (application/json)
 
         {
-            "password":"otraclave"
+            "server":"192.168.1.2"
         }
 
 + Response 200 (application/json; charset=utf-8)
@@ -278,3 +271,16 @@ Return the list of parameters
         {
                 "status": "success"
         }
+
+## Check config [GET /api/v1/configs/check]
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (object)
+        + status (string)
+        + message (array[object])
+
+    + Body
+
+            {
+               "status":"success",
+               "message": [ "Microsoft SQL Server 2005 - 9.00.1399.06 (Intel X86) \n\tOct 14 2005 00:33:37 \n\tCopyright (c) 1988-2005 Microsoft Corporation\n\tStandard Edition on Windows NT 5.2 (Build 3790: Service Pack 2)\n" ]
+            }

@@ -3,7 +3,6 @@ const routes = express();
 
 routes.use(require('./docs'));
 routes.use(require('./sql'));
-// routes.use(require('./config'));
+routes.use(require('./config'));
 
-// module.exports = app
 module.exports = routes;

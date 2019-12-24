@@ -14,27 +14,36 @@ body {
 }
 
 textarea.EditSQLX {
-   height: 120px;
+   /* height: 120px; */
+   height: calc(100vh - 18em);
    overflow-x: auto;
-   font-size: 16px;
+   font-size: 18px;
 }
 
 .SQLEditor {
   height: calc(30vh - 16px);
 }
 
-.SQLResult {
+/* .SQLResult {
   height: calc(70vh - 80px);
-}
+} */
 
-.ResultTable {
+.SQLResult {
    overflow-x: auto;
-   height: calc(100% - 56px);
+   /* height: calc(100% - 56px); */
 }
 
 h5.noData {
   font-weight: 400;
   letter-spacing: 0.2em;
+}
+
+h3 {
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
 }
 
 .demo-drawer-header {
@@ -48,4 +57,12 @@ h5.noData {
 
 .mdl-layout__header .mdl-layout__drawer-button {
   color: rgba(0,0,0,.5);
+}
+
+form {
+  width: 100%;
+}
+
+.max-width-1rem {
+  max-width: 1rem;
 }

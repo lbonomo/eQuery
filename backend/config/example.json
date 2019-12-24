@@ -1,0 +1,14 @@
+{
+  "node_port": 5555,
+  "json_indentation": 4,
+  "mssql": {
+    "user": "your_user",
+    "password": "your_passwoed",
+    "server": "your_server_ip",
+    "database": "your_database"
+    "options": {
+      "encrypt": false,
+      "instanceName": "intance"
+    }
+  }
+}

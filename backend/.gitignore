@@ -1,5 +1,9 @@
+.gitignore
+todo.md
 package-lock.json
 node_modules
-config.json
-config.json.developer
-config.json.production
+config/default.json
+config/config.json
+config/config.json.*
+*~
+.*.swp

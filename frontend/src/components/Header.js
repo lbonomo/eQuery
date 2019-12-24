@@ -8,12 +8,11 @@ const Header = () => {
        </div>
 
       <div className="mdl-layout__header-row">
-         <span className="mdl-layout-title">Home</span>
+         <span className="mdl-layout-title">eQuery</span>
          <div className="mdl-layout-spacer"></div>
        </div>
+
      </header>
-
-
    )
 }
 

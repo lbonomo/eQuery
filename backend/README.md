@@ -1,3 +1,6 @@
+## Config
+Copiar `example.json` a `default.json` y modificar según los valores necesarios.
+
 ## API Blueprint
 We use [API Blueprint](https://apiblueprint.org/) to describe the API
 and some [tools](https://apiblueprint.org/tools.html)
@@ -49,8 +52,6 @@ dredd ./api.apib http://127.0.0.1:5555 --dry-run
 <!-- [Articulo](https://www.adictosaltrabajo.com/2015/07/02/apis-rest-documentadas-y-probadas-con-api-blueprint-y-dredd/) -->
 
 ## Config
-
-
 ```shell
 npm install config
 ```

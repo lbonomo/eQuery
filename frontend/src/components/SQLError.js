@@ -1,13 +1,13 @@
 import React from 'react';
 
-const NoData = () => {
+const SQLError = ({message}) => {
   return(
     <div className="mdl-grid">
       <div className="mdl-layout-spacer"></div>
-      <h5 className="noData">Sin Datos</h5>
+      <p>{message}</p>
       <div className="mdl-layout-spacer"></div>
     </div>
   );
 }
 
-export default NoData;
+export default SQLError;
