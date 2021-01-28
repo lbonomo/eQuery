@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/lbonomo/eQuery#readme",
   "devDependencies": {
-    "electron": "^7.1.2"
+    "electron": "^9.4.0"
   },
   "dependencies": {
     "config": "^3.2.4",
